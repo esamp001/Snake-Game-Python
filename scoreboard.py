@@ -14,11 +14,17 @@ class Scoreboard(Turtle):
         self.update_scoreboard()
 
     def update_scoreboard(self):
-        self.write(arg=f"Score:{self.score}", align=ALIGNMENT, font=FONT)
+        self.clear()
+        self.write(arg=f"Score:{self.score} Highest Score: {self.highest_score}", align=ALIGNMENT, font=FONT)
 
-    def game_over(self):
-        self.goto(0, 0)
-        self.write(arg="GAME OVER!", align=ALIGNMENT, font=FONT)
+    def reset_scoreboard(self):
+        if self.score > self.highest_score:
+            self.highest_score = self.score
+        self.score = 0
+        self.update_scoreboard()
+    # def game_over(self):
+    #     self.goto(0, 0)
+    #     self.write(arg="GAME OVER!", align=ALIGNMENT, font=FONT)
 
     def add_score(self):
         self.score += 1

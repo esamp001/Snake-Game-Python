@@ -24,6 +24,13 @@ class Snake:
         ariela.goto(position)
         self.save_all_turtles.append(ariela)
 
+    def reset(self):
+        for seg in self.save_all_turtles:
+            seg.goto(1000, 1000)
+        self.save_all_turtles.clear()
+        self.create_snake()
+        self.head = self.save_all_turtles[0]
+
     def extend(self):
         self.add_segment(self.save_all_turtles[-1].position())
 
